@@ -1,0 +1,9 @@
+div{
+  display: flex;
+  flex-direction: column;
+}
+p{
+  font-family: Verdana;
+  margin: auto auto;
+  padding: 10px;
+}

@@ -1,1 +1,18 @@
-<app-todo-card></app-todo-card>
+<!--<div>-->
+<!--  <button (click)="filterBy = 'all'">All</button>-->
+<!--  <button (click)="filterBy = 'created'">Created</button>-->
+<!--  <button (click)="filterBy = 'title'">Title</button>-->
+<!--  <button (click)="filterBy = 'description'">Description</button>-->
+<!--  <button (click)="filterBy = 'description'">Due</button>-->
+<!--  <button (click)="filterBy = 'description'">Status</button>-->
+<!--</div>-->
+<div>
+  <app-todo-card *ngFor="let data of todoData" [item]="data" (newDataEvent)="removeItem($event)"></app-todo-card>
+</div><br>
+<input type="text" [(ngModel)]="newData.created">
+<input type="text" [(ngModel)]="newData.title">
+<input type="text" [(ngModel)]="newData.description">
+<input type="text" [(ngModel)]="newData.due">
+<input type="text" [(ngModel)]="newData.status">
+<button (click)="addData(newData)">Add</button>
+

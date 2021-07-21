@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {TodoService} from "../../shared/services/todo.service";
+import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 import {TodoData} from "../../shared/interfaces";
 
 @Component({
@@ -8,15 +7,16 @@ import {TodoData} from "../../shared/interfaces";
   styleUrls: ['./todo-card.component.css']
 })
 export class TodoCardComponent implements OnInit {
-  todoData: TodoData[] = [] ;
-  error: string = '';
-  constructor(private todoService: TodoService) { }
+
+  @Input() item! : TodoData;
+  @Output() newDataEvent = new EventEmitter<TodoData>()
+  constructor() { }
 
   ngOnInit(): void {
-    this.todoService.getTodoData().subscribe(
-      (data) => {this.todoData = data},
-      (error) => {this.error = error.message}
-    );
   }
 
+  removeItem(item: TodoData) {
+    this.newDataEvent.emit(item);
+
+  }
 }

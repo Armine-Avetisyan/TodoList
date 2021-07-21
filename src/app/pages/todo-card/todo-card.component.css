@@ -7,3 +7,10 @@ p{
   margin: auto auto;
   padding: 10px;
 }
+button{
+  width: 200px;
+  height: 30px;
+  margin: auto;
+  background-color: black;
+  color: lightgray;
+}
